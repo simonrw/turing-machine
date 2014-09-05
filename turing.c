@@ -17,6 +17,7 @@ void free_turing(Turing *turing) {
 }
 
 turing_status_t move_head(Turing *turing, int direction) {
+    printf("Original head location: %p\n", &*turing->p);
     if (0 == direction) {
         (*turing->p)--;
     } else if (1 == direction) {
@@ -24,6 +25,8 @@ turing_status_t move_head(Turing *turing, int direction) {
     } else {
         turing_error("Invalid direction given: %d\n", direction);
     }
+
+    printf("New head location: %p\n", &*turing->p);
 
     return TURING_OK;
 }
