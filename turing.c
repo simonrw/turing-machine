@@ -31,6 +31,20 @@ turing_status_t move_head(Turing *turing, bool direction) {
     return TURING_OK;
 }
 
+bool read_value(Turing *turing) {
+    return *(turing->p);
+}
+
+turing_status_t set_value(Turing *turing, bool value) {
+    if ((0 != value) && (1 != value)) {
+        turing_error("Invalid value given: %d\n", value);
+    }
+
+    *(turing->p) = value;
+
+    return TURING_OK;
+}
+
 turing_status_t execute_instruction(Turing *turing, char *program) {
     char zero_case[7], one_case[7];
     strncpy(zero_case, program, sizeof(zero_case) - 2);
