@@ -11,3 +11,7 @@ $(RUN): main.o turing.o
 
 %.o: %.c
 	$(CC) -c $< -o $@ $(COMMON) $(CFLAGS)
+
+clean:
+	@rm -f *.o
+	@rm -f $(RUN)
