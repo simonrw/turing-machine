@@ -38,8 +38,7 @@ turing_status_t execute_instruction(Turing *turing, char *program) {
             return TURING_HALT;
         }
     } else {
-        fprintf(stderr, "Bad instruction found: %d\n", value_under_pointer);
-        return TURING_ERROR;
+        turing_error("Bad instruction found: %d\n", value_under_pointer);
     }
     return TURING_OK;
 }
@@ -63,8 +62,7 @@ turing_status_t execute_definite_instruction(Turing *turing, char *program) {
         printf("Moving pointer right\n");
         (*turing->p)++;
     } else {
-        fprintf(stderr, "Invalid move value found: %d\n", pointer_movement);
-        return TURING_ERROR;
+        turing_error("Invalid move value found: %d\n", pointer_movement);
     }
 
     if (0 == goto_card) {

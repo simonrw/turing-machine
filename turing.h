@@ -3,6 +3,9 @@
 
 #define TAPE_LEN 1024
 
+#define turing_error(...) fprintf(stderr, __VA_ARGS__);\
+    return TURING_ERROR
+
 typedef int bool;
 
 typedef enum {
