@@ -12,19 +12,13 @@
 
 
 int main() {
-    int status;
+    turing_status_t status;
     Turing *turing;
 
     status = 0;
     turing = init_turing();
-    status = execute_instruction(turing, "0 110\n1 110");
-    if (TURING_ERROR == status) {
-        fprintf(stderr, "Exiting\n");
-        return 1;
-    } else if (TURING_HALT) {
-        printf("Program reached halt state!\n");
-    }
-
+    turing_try(move_head_left(turing));
+    turing_try(move_head_right(turing));
     free_turing(turing);
 
     return 0;
