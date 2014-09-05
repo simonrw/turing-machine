@@ -16,6 +16,18 @@ void free_turing(Turing *turing) {
     free(turing);
 }
 
+turing_status_t move_head(Turing *turing, int direction) {
+    if (0 == direction) {
+        (*turing->p)--;
+    } else if (1 == direction) {
+        (*turing->p)++;
+    } else {
+        turing_error("Invalid direction given: %d\n", direction);
+    }
+
+    return TURING_OK;
+}
+
 turing_status_t execute_instruction(Turing *turing, char *program) {
     char zero_case[7], one_case[7];
     strncpy(zero_case, program, sizeof(zero_case) - 2);

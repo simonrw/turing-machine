@@ -21,6 +21,8 @@ typedef struct Turing {
 
 Turing *init_turing();
 void free_turing(Turing *turing);
+turing_status_t move_head(Turing *turing, int direction);
+
 turing_status_t execute_instruction(Turing *turing, char *program);
 turing_status_t execute_definite_instruction(Turing *turing, char *program);
 
