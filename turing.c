@@ -16,7 +16,7 @@ void free_turing(Turing *turing) {
     free(turing);
 }
 
-turing_status_t move_head(Turing *turing, int direction) {
+turing_status_t move_head(Turing *turing, bool direction) {
     printf("Original head location: %p\n", &*turing->p);
     if (0 == direction) {
         turing->p = turing->p - 1;
