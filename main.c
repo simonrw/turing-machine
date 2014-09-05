@@ -5,6 +5,12 @@
 
 #define MAX_PROGRAM_LENGTH 32
 
+#define turing_try(statement) status = statement;\
+                                       if (TURING_ERROR == status) {\
+                                           return 1;\
+                                       }
+
+
 int main() {
     int status;
     Turing *turing;
