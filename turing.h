@@ -5,6 +5,8 @@
 
 #define turing_error(...) fprintf(stderr, __VA_ARGS__);\
     return TURING_ERROR
+#define move_head_left(t) move_head(t, 0)
+#define move_head_right(t) move_head(t, 1)
 
 typedef int bool;
 
